@@ -1,0 +1,110 @@
+<!--
+
+=========================================================
+* Pixel Free Bootstrap 5 UI Kit
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<!-- Primary Meta Tags -->
+<title>
+    Home page
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Pixel CSS -->
+<link type="text/css" href="{{ ASSETS_ROOT }}/css/pixel.css" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="{{ ASSETS_ROOT }}/img/favicon/favpng.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_ROOT }}/img/favicon/favpng.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_ROOT }}/img/favicon/favpng.png">
+<link rel="manifest" href="{{ ASSETS_ROOT }}/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+
+    {% include 'includes/navigation.html' %}
+
+    <main>
+
+        <!-- Hero -->
+        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+
+                        <h1 class="fw-bolder display-2">
+                            Newspaper agency
+                        </h1>
+                        <h2 class="lead fw-normal text-muted mb-4 px-lg-10">
+                            Explore More, Create Endless Newspapers
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="fill-white"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+                    <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+                </svg></figure>
+        </section>
+
+        <div class="section py-0">
+            <div class="container mt-n10 mt-lg-n12 z-2">
+                <div class="row justify-content-center">
+                    <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark">
+                        <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="signin-inner my-4 my-lg-0 bg-gradient-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
+                            <div class="text-center text-md-center mb-4 mt-md-0">
+                                <div class="col-12 text-center">
+                                    <h2 class="h1 px-lg-5">What's inside?</h2>
+                                    <br />
+                                    <h3 class="h3 px-lg-5">Redactors: {{ num_redactor }}</h3>
+                                    <br />
+                                    <h3 class="h3 px-lg-5">Topics: {{ num_topic }}</h3>
+                                    <br />
+                                    <h3 class="h3 px-lg-5">Newspapers: {{ num_newspaper }}</h3>
+                                    <br />
+                                </div>
+                                <br />
+                                <span class="font-weight-normal">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    {% include "includes/footer.html" %}
+
+    {% include "includes/scripts.html" %}
+
+</body>
+</html>
