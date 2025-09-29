@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from redaction.models import Topic, Redactor, Newspaper
+from redaction.form import RedactorForm
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -38,6 +39,12 @@ class TopicUpdateView(generic.UpdateView):
 class RedactorListView(generic.ListView):
     model = Redactor
     paginate_by = 10
+
+
+class RedactorCreateView(generic.CreateView):
+    model = Redactor
+    form_class = RedactorForm
+    success_url = reverse_lazy("redaction:redactor-list")
 
 
 class NewspaperListView(generic.ListView):
