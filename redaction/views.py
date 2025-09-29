@@ -25,3 +25,8 @@ class TopicListView(generic.ListView):
 class RedactorListView(generic.ListView):
     model = Redactor
     paginate_by = 10
+
+
+class NewspaperListView(generic.ListView):
+    model = Newspaper
+    paginate_by = 10
