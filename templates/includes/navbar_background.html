@@ -1,0 +1,9 @@
+<link type="text/css" href="{{ ASSETS_ROOT }}/css/pixel.css" rel="stylesheet">
+<div style="overflow: hidden; background-color: #1F2937; top: 0; width: 100%; line-height: 70px;">
+  <a class="navbar-brand me-lg-5" href="{% url 'redaction:index' %}" style="padding: 14px 20px 14px 200px;">
+    <img class="navbar-brand-dark" src="{{ ASSETS_ROOT }}/img/brand/light_rec.svg" alt="Logo light">
+  </a>
+  <a href="{% url 'redaction:redactor-list' %}" style="color: white; padding: 14px 30px 14px 50px">Redactors</a>
+  <a href="{% url 'redaction:topic-list' %}" style="color: white; padding: 14px 30px;">Topics</a>
+  <a href="{% url 'redaction:newspaper-list' %}" style="color: white; padding: 14px 30px;">Newspapers</a>
+</div>
