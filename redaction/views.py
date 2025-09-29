@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from redaction.models import Topic, Redactor, Newspaper
@@ -20,6 +21,12 @@ def index(request: HttpRequest) -> HttpResponse:
 class TopicListView(generic.ListView):
     model = Topic
     paginate_by = 10
+
+
+class TopicCreateView(generic.CreateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("redaction:topic-list")
 
 
 class RedactorListView(generic.ListView):
