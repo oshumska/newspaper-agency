@@ -2,7 +2,7 @@
     <header class="header-global" data-background="{{ ASSETS_ROOT }}/img/pages/form-image.jpg">
         <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-dark navbar-toggler">
             <div class="container position-relative">
-                <a class="navbar-brand me-lg-5" href="#">
+                <a class="navbar-brand me-lg-5" href="{% url 'redaction:index' %}">
                     <img class="navbar-brand-dark" src="{{ ASSETS_ROOT }}/img/brand/light_rec.svg" alt="Logo light">
                     <img class="navbar-brand-light" src="{{ ASSETS_ROOT }}/img/brand/dark.svg" alt="Logo dark">
                 </a>
@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle" id="supportDropdown" aria-expanded="false">
+                            <a href="{% url 'redaction:topic-list' %}" class="nav-link dropdown-toggle" id="supportDropdown" aria-expanded="false">
                                 Topics
                                 <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                             </a>
