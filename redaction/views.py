@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.views import generic
 
 from redaction.models import Topic, Redactor, Newspaper
 
@@ -14,3 +15,8 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_newspaper": num_newspaper,
     }
     return render(request, "redaction/index.html", context=context)
+
+
+class TopicListView(generic.ListView):
+    model = Topic
+    paginate_by = 10
