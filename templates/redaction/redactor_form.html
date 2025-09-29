@@ -1,0 +1,126 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Redactor create {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    {% load form_tags %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        {% include 'includes/navbar_background.html' %}
+
+        <!-- Section -->
+        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="{{ ASSETS_ROOT }}/img/pages/form-image.jpg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
+                            <div class="text-center text-md-center mb-4 mt-md-0">
+                                <h1 class="mb-0 h3">
+                                    {{ object|yesno:"Update,Create" }} Redactor
+                                </h1>
+                                <br />
+                            </div>
+
+                            {% if not success %}
+
+                                <form method="post" novalidate>
+
+                                    {% csrf_token %}
+
+                                    <div class="form-group mb-4">
+                                        <label for="email">Username</label>
+                                        <div class="input-group">
+                                            {{ form.username|add_class:"form-control" }}
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <span class="text-error">{{ form.username.errors }}</span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="email">Email</label>
+                                        <div class="input-group">
+                                            {{ form.email|add_class:"form-control" }}
+                                            <span class="input-group-text">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                        <span class="text-error">{{ form.email.errors }}</span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="email">First name</label>
+                                        <div class="input-group">
+                                            {{ form.first_name|add_class:"form-control" }}
+                                        </div>
+                                        <span class="text-error">{{ form.first_name.errors }}</span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="email">Last name</label>
+                                        <div class="input-group">
+                                            {{ form.last_name|add_class:"form-control" }}
+                                        </div>
+                                        <span class="text-error">{{ form.last_name.errors }}</span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="email">Years of experience</label>
+                                        <div class="input-group">
+                                            {{ form.years_of_experience|add_class:"form-control" }}
+                                        </div>
+                                        <span class="text-error">{{ form.years_of_experience.errors }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="form-group mb-4">
+                                        <label for="password">Password</label>
+                                            <div class="input-group">
+                                                {{ form.password1|add_class:"form-control" }}
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
+                                            </div>
+
+                                        <span class="text-error">{{ form.password1.errors }}</span>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="password">Password Check</label>
+                                            <div class="input-group">
+                                                {{ form.password2|add_class:"form-control" }}
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
+                                            </div>
+                                        <span class="text-error">{{ form.password2.errors }}</span>
+                                    </div>
+                                        <!-- End of Form -->
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" name="register" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+
+                            {% else %}
+
+                                <p class="mt-4 text-sm text-center">
+                                    <a href="#" class="btn btn-primary">Sign IN</a>
+                                </p>
+
+                            {% endif %}
+
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
