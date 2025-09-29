@@ -1,0 +1,101 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Newspaper {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    {% load form_tags %}
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+
+        <!-- Hero -->
+        <div class="section-header pb-6 bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center">
+                        <h1 class="display-3 mb-4">
+                            {{ object|yesno:"Update,Create" }} Newspaper
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Hero -->
+
+        <!-- Section -->
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="section section-md pt-4">
+            <div class="container">
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label for="exampleTitle">Title:</label>
+                                {{ form.title|add_class:"form-control" }}
+                        </div>
+                        <!-- End of Form -->
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- End of Form -->
+                        <!-- Form -->
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1">Content:</label>
+                            {{ form.content|add_class:"form-control" }}
+                        </div>
+                        <!-- End of Form -->
+                    </div>
+                </div>
+                <div class="row mb-5 mb-lg-5">
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Checkboxes -->
+                        <div class="h6 fw-bold mb-3">Redactors:</div>
+                        <div class="form-check">
+                            {{ form.publishers}}
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
+
+                        <fieldset>
+                            <legend class="h6">Main Topic:</legend>
+                            <div class="form-check">
+                                {{ form.topic }}
+                            </div>
+                            <!-- End of Radio -->
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
+                        <h6 class="h6 fw-bold">Additional topics:</h6>
+                        <div class="form-check">
+                            {{ form.sub_topic }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-12 col-md-4">
+                        <!-- Form -->
+                        <div class="form-group">
+                            <label class="h6">Choose a date</label>
+                            <div class="input-group mb-4">
+                                {{ form.published_date|add_class:"form-control" }}
+                            </div>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <!-- End of Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!-- End of Section -->
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
