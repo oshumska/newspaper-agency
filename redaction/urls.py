@@ -5,7 +5,9 @@ from redaction.views import (
     RedactorListView,
     NewspaperListView,
     TopicCreateView,
-    TopicUpdateView, RedactorCreateView
+    TopicUpdateView,
+    RedactorCreateView,
+    NewspaperCreateView,
 )
 
 urlpatterns = [
@@ -16,6 +18,7 @@ urlpatterns = [
     path("redactor/", RedactorListView.as_view(), name="redactor-list"),
     path("redactor/create/", RedactorCreateView.as_view(), name="redactor-create"),
     path("newspaper/", NewspaperListView.as_view(), name="newspaper-list"),
+    path("newspaper/create/", NewspaperCreateView.as_view(), name="newspaper-create"),
 ]
 
 app_name = "redaction"
