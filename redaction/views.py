@@ -29,6 +29,12 @@ class TopicCreateView(generic.CreateView):
     success_url = reverse_lazy("redaction:topic-list")
 
 
+class TopicUpdateView(generic.UpdateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("redaction:topic-list")
+
+
 class RedactorListView(generic.ListView):
     model = Redactor
     paginate_by = 10
