@@ -39,7 +39,7 @@
                                 </tr>
                                 {% for newspaper in newspaper_list %}
                                     <tr>
-                                        <th scope="row" style="vertical-align: middle"><a href="#">{{ newspaper.title }}</a></th>
+                                        <th scope="row" style="vertical-align: middle"><a href="{% url 'redaction:newspaper-detail' pk=newspaper.id %}">{{ newspaper.title }}</a></th>
                                         <td headers="pubdate" style="vertical-align: middle;">{{ newspaper.published_date }}</td>
                                         <td headers="topic" style="vertical-align: middle">
                                             <p>

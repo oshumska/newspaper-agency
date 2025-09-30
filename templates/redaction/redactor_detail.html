@@ -42,7 +42,7 @@
                         <div class="card border-gray-300 mb-4">
                             <div class="card-body py-5">
                                 <p class="card-text py-4 mb-0">{{ newspaper.title }}</p>
-                                <a href="#" class="btn btn-primary btn-sm">See story</a>
+                                <a href="{% url 'redaction:newspaper-detail' pk=newspaper.id %}" class="btn btn-primary btn-sm">See story</a>
                             </div>
                         </div>
                     </div>
