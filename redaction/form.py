@@ -45,6 +45,7 @@ class NewspaperForm(forms.ModelForm):
     sub_topic = forms.ModelMultipleChoiceField(
         queryset=Topic.objects,
         widget=forms.CheckboxSelectMultiple(),
+        required=False
     )
 
     class Meta:
