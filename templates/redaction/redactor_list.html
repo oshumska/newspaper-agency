@@ -37,7 +37,7 @@
                                 </tr>
                                 {% for redactor in redactor_list %}
                                     <tr>
-                                        <td><a href="#">{{ redactor.username }}</a></td>
+                                        <td><a href="{% url 'redaction:redactor-detail' pk=redactor.id %}">{{ redactor.username }}</a></td>
                                         <td>{{ redactor.first_name }} {{ redactor.last_name }}</td>
                                     </tr>
                                 {% endfor %}
