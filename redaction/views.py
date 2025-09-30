@@ -47,6 +47,11 @@ class RedactorCreateView(generic.CreateView):
     success_url = reverse_lazy("redaction:redactor-list")
 
 
+class RedactorDetailView(generic.DetailView):
+    model = Redactor
+    queryset = Redactor.objects.prefetch_related("newspapers__topic", "newspapers__sub_topic")
+
+
 class NewspaperListView(generic.ListView):
     model = Newspaper
     paginate_by = 10
