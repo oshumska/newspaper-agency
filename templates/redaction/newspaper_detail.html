@@ -16,7 +16,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 text-center">
                         <h1 class="display-3 mb-4">{{ newspaper.title }}</h1>
-                        <a href="#">
+                        <a href="{% url 'redaction:newspaper-update' pk=newspaper.id%}">
                         <div class="alert bg-secondary" role="alert">
                             <span class="fas fa-info-circle"></span>
                             Update
