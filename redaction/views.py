@@ -66,3 +66,9 @@ class NewspaperCreateView(generic.CreateView):
 class NewspaperDetailView(generic.DetailView):
     model = Newspaper
     queryset = Newspaper.objects.prefetch_related("publishers", "sub_topic").select_related("topic")
+
+
+class NewspaperUpdateView(generic.UpdateView):
+    model = Newspaper
+    form_class = NewspaperForm
+    success_url = reverse_lazy("redaction:newspaper-list")
