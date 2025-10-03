@@ -18,6 +18,11 @@
                         <img src="{{ ASSETS_ROOT }}/img/team/profile-picture-freelancer.jpg" class="rounded-circle img-thumbnail image-lg border-gray-300 p-2" alt="Profile image">
                         <div class="mt-4 mb-5">
                             <h1 class="display-2 fw-normal my-4">Hello, I’m <span class="text-through fw-bold">{{ redactor.username }}</span> {{ redactor.first_name }} {{ redactor.last_name }}.</h1>
+                            {% if redactor.years_of_experience %}
+                                <h2 >Redactor with {{ redactor.years_of_experience }} year{{ redactor.years_of_experience|pluralize }} of experience</h2>
+                            {% endif %}
+                            <h2 class="btn rounded btn-secondary text-white"><a href="{% url 'redaction:update-experience' pk=redactor.id %}">Add experience +</a></h2>
+
                         </div>
                     </div>
                 </div>
