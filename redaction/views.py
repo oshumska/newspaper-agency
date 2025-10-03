@@ -64,6 +64,11 @@ class RedactorUpdateYearsOfExperience(generic.UpdateView):
     success_url = reverse_lazy("redaction:redactor-list")
 
 
+class RedactorDeleteView(generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("redaction:redactor-list")
+
+
 class NewspaperListView(generic.ListView):
     model = Newspaper
     paginate_by = 10
