@@ -13,6 +13,7 @@ from redaction.views import (
     NewspaperUpdateView,
     RedactorUpdateYearsOfExperience,
     TopicDeleteView,
+    RedactorDeleteView,
 )
 
 urlpatterns = [
@@ -24,6 +25,7 @@ urlpatterns = [
     path("redactor/", RedactorListView.as_view(), name="redactor-list"),
     path("redactor/<int:pk>/", RedactorDetailView.as_view(), name="redactor-detail"),
     path("redactor/<int:pk>/update-experience/", RedactorUpdateYearsOfExperience.as_view(), name="update-experience"),
+    path("redactor/<int:pk>/delete/", RedactorDeleteView.as_view(), name="delete-redactor"),
     path("redactor/create/", RedactorCreateView.as_view(), name="redactor-create"),
     path("newspaper/", NewspaperListView.as_view(), name="newspaper-list"),
     path("newspaper/<int:pk>/", NewspaperDetailView.as_view(), name="newspaper-detail"),
