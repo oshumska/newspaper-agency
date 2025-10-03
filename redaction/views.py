@@ -89,3 +89,8 @@ class NewspaperUpdateView(generic.UpdateView):
     model = Newspaper
     form_class = NewspaperForm
     success_url = reverse_lazy("redaction:newspaper-list")
+
+
+class NewspaperDeleteView(generic.DeleteView):
+    model = Newspaper
+    success_url = reverse_lazy("redaction:newspaper-list")
