@@ -30,6 +30,22 @@ class RedactorForm(UserCreationForm):
         return None
 
 
+class UpdateYearsOfExperienceForm(forms.ModelForm):
+
+    class Meta:
+        model = Redactor
+        fields = ("years_of_experience",)
+
+    def clean_years_of_experience(self):
+        if self.cleaned_data["years_of_experience"] < 0:
+            raise forms.ValidationError("years of experience cannot be negative")
+        if self.instance and self.instance.years_of_experience:
+            if self.cleaned_data["years_of_experience"] < self.instance.years_of_experience:
+                raise forms.ValidationError("years of experience must increase")
+
+        return self.cleaned_data["years_of_experience"]
+
+
 class NewspaperForm(forms.ModelForm):
     published_date = forms.DateTimeField(
         initial=datetime.datetime.now(),
