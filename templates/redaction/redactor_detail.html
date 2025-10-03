@@ -66,9 +66,9 @@
                             </div>
                         </form>
                         <br>
-                        <form action="#">
+                        <form action="{% url 'redaction:delete-redactor' pk=redactor.id %}">
                             <div class="d-grid">
-                                <button type="submit" class="btn rounded btn-danger">Delete</button>
+                                <button type="submit" class="btn rounded btn-outline-danger">Delete</button>
                             </div>
                         </form>
                     </div>
