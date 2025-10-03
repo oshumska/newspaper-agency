@@ -25,8 +25,9 @@ class RedactorForm(UserCreationForm):
 
     def clean_years_of_experience(self):
         if self.cleaned_data["years_of_experience"]:
-            return self.cleaned_data["years_of_experience"] >= 0
-        return True
+            if self.cleaned_data["years_of_experience"] >= 0:
+                return self.cleaned_data["years_of_experience"]
+        return None
 
 
 class NewspaperForm(forms.ModelForm):
