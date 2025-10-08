@@ -43,7 +43,7 @@
                     </ul>
                 </div>
                 <div class="d-flex align-items-center">
-                    <form method="post" action="#">
+                    <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span>Logout</button>
                     </form>
