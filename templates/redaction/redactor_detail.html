@@ -60,11 +60,13 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-8">
-                        <form action="#">
-                            <div class="d-grid">
-                                <button type="submit" class="btn rounded btn-secondary">Update</button>
-                            </div>
-                        </form>
+                        {% if request.user.id == redactor.id %}
+                            <form action="{% url 'password_change' %}">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn rounded btn-secondary">Change Password</button>
+                                </div>
+                            </form>
+                        {% endif %}
                         <br>
                         <form action="{% url 'redaction:redactor-delete' pk=redactor.id %}">
                             <div class="d-grid">
