@@ -3,7 +3,9 @@
 {% block title %} Newspapers {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+    {% load form_tags %}
+{% endblock stylesheets %}
 
 {% block content %}
 
@@ -19,6 +21,14 @@
                                 Create
                             </a>
                         </h1>
+                        <form method="get" action="">
+                            <div class="input-group">
+                                {{ search_form.username|add_class:"form-control" }}
+                                <span class="input-group-text">
+                                    <input class="fa fa-search-plus" style="background-color: transparent; border: none" type="submit" value="🔍">
+                                </span>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
