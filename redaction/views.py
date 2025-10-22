@@ -36,9 +36,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TopicListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = TopicSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = TopicSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
@@ -73,9 +71,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(RedactorListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_form"] = RedactorSearchForm(
-            initial={"username": username}
-        )
+        context["search_form"] = RedactorSearchForm(initial={"username": username})
         return context
 
     def get_queryset(self):
@@ -94,7 +90,9 @@ class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.prefetch_related("newspapers__topic", "newspapers__sub_topic")
+    queryset = Redactor.objects.prefetch_related(
+        "newspapers__topic", "newspapers__sub_topic"
+    )
 
 
 class RedactorUpdateYearsOfExperience(LoginRequiredMixin, generic.UpdateView):
@@ -116,9 +114,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperListView, self).get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
-        context["search_form"] = NewspaperSearchForm(
-            initial={"title": title}
-        )
+        context["search_form"] = NewspaperSearchForm(initial={"title": title})
         return context
 
     def get_queryset(self):
@@ -137,7 +133,9 @@ class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
 
 class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
     model = Newspaper
-    queryset = Newspaper.objects.prefetch_related("publishers", "sub_topic").select_related("topic")
+    queryset = Newspaper.objects.prefetch_related(
+        "publishers", "sub_topic"
+    ).select_related("topic")
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):

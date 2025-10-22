@@ -40,7 +40,10 @@ class UpdateYearsOfExperienceForm(forms.ModelForm):
         if self.cleaned_data["years_of_experience"] < 0:
             raise forms.ValidationError("years of experience cannot be negative")
         if self.instance and self.instance.years_of_experience:
-            if self.cleaned_data["years_of_experience"] < self.instance.years_of_experience:
+            if (
+                self.cleaned_data["years_of_experience"]
+                < self.instance.years_of_experience
+            ):
                 raise forms.ValidationError("years of experience must increase")
 
         return self.cleaned_data["years_of_experience"]
@@ -55,14 +58,9 @@ class NewspaperForm(forms.ModelForm):
         queryset=get_user_model().objects,
         widget=forms.CheckboxSelectMultiple(),
     )
-    topic = forms.ModelChoiceField(
-        queryset=Topic.objects,
-        widget=forms.RadioSelect()
-    )
+    topic = forms.ModelChoiceField(queryset=Topic.objects, widget=forms.RadioSelect())
     sub_topic = forms.ModelMultipleChoiceField(
-        queryset=Topic.objects,
-        widget=forms.CheckboxSelectMultiple(),
-        required=False
+        queryset=Topic.objects, widget=forms.CheckboxSelectMultiple(), required=False
     )
 
     class Meta:
@@ -75,20 +73,24 @@ class TopicSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={
-            "placeholder": "Search by name",
-        }),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name",
+            }
+        ),
     )
-    
-    
+
+
 class NewspaperSearchForm(forms.Form):
     title = forms.CharField(
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={
-            "placeholder": "Search by title",
-        }),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by title",
+            }
+        ),
     )
 
 
@@ -97,7 +99,9 @@ class RedactorSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={
-            "placeholder": "Search by username",
-        }),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by username",
+            }
+        ),
     )
