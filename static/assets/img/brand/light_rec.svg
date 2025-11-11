@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 78.4">
+    <circle fill="#fff" r="4" cy="5"/>
+    <circle fill="#fff" r="5" cy="22"/>
+    <circle fill="#fff" r="7" cy="38"/>
+    <circle fill="#fff" r="5" cy="55"/>
+    <circle fill="#fff" r="4" cy="72"/>
+
+    <circle fill="#fff" r="5" cx="15" cy="5"/>
+    <circle fill="#fff" r="4" cx="15" cy="22"/>
+    <circle fill="#fff" r="6" cx="15" cy="38"/>
+    <circle fill="#fff" r="4" cx="15" cy="55"/>
+    <circle fill="#fff" r="5" cx="15" cy="72"/>
+
+    <circle fill="#fff" r="4" cx="30" cy="5"/>
+    <circle fill="#fff" r="6" cx="30" cy="22"/>
+    <circle fill="#fff" r="4" cx="30" cy="38"/>
+    <circle fill="#fff" r="6" cx="30" cy="55"/>
+    <circle fill="#fff" r="4" cx="30" cy="72"/>
+
+    <circle fill="#fff" r="5" cx="45" cy="5"/>
+    <circle fill="#fff" r="4" cx="45" cy="22"/>
+    <circle fill="#fff" r="6" cx="45" cy="38"/>
+    <circle fill="#fff" r="4" cx="45" cy="55"/>
+    <circle fill="#fff" r="5" cx="45" cy="72"/>
+
+    <circle fill="#fff" r="4" cx="60" cy="5"/>
+    <circle fill="#fff" r="5" cx="60" cy="22"/>
+    <circle fill="#fff" r="7" cx="60" cy="38"/>
+    <circle fill="#fff" r="5" cx="60" cy="55"/>
+    <circle fill="#fff" r="4" cx="60" cy="72"/>
+</svg>

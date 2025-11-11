@@ -1,0 +1,87 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Newspaper {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+
+        <!-- Hero -->
+        <div class="section-header pb-6 bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center">
+                        <h1 class="display-3 mb-4">{{ newspaper.title }}</h1>
+                        <a href="{% url 'redaction:newspaper-update' pk=newspaper.id%}">
+                        <div class="alert bg-secondary" role="alert">
+                            Update
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Hero -->
+
+        <!-- Section -->
+        <div class="section section-md">
+            <div class="container">
+                <div class="row mt-4 mb-3 align-items-center">
+                    <div class="col-sm-10">
+                        <p class="text-dark mb-0">
+                            {{ newspaper.content }}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mt-6 mb-5">
+                            <span class="h5 fw-bold">Additional information:</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Title -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <span class="h6 fw-bold">Redactors:</span>
+                        </div>
+                            {% for redactor in newspaper.publishers.all %}
+                                <p>{{ redactor.username }}: {{ redactor.first_name }} {{ redactor.last_name }}</p>
+                            {% endfor %}
+                        <a href="{% url 'redaction:newspaper-delete' pk=newspaper.id %}" class="btn btn-outline-danger link-to-page">
+                            Delete
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mt-5 mb-3 mt-sm-0">
+                            <span class="h6 fw-bold">Publishing date:</span>
+                            <p>{{ newspaper.published_date }}</p>
+                            <span class="h6 fw-bold">Topics covered:</span>
+                            <p>
+                                {{ newspaper.topic }}
+                            <p>
+                            {% for subtopic in newspaper.sub_topic.all %}
+                                <p>
+                                    {% if subtopic != newspaper.topic %} {{ subtopic }}{% endif %}
+                                </p>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <!-- End of Section -->
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

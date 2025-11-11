@@ -1,0 +1,13 @@
+<link type="text/css" href="{{ ASSETS_ROOT }}/css/pixel.css" rel="stylesheet">
+<div style="overflow: hidden; background-color: #1F2937; top: 0; width: 100%; line-height: 70px;">
+  <a class="navbar-brand me-lg-5 container-md href="{% url 'redaction:index' %}">
+    <img class="navbar-brand-dark" src="{{ ASSETS_ROOT }}/img/brand/light_rec.svg" alt="Logo light">
+  </a>
+  <a href="{% url 'redaction:redactor-list' %}" class="nav-item text-white container-fluid">Redactors</a>
+  <a href="{% url 'redaction:topic-list' %}" class="nav-item text-white container-fluid">Topics</a>
+  <a href="{% url 'redaction:newspaper-list' %}" class="nav-item text-white container-fluid">Newspapers</a>
+  <form method="post" action="{% url 'logout' %}" class="btn container-relative">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-gray-100">Logout</button>
+  </form>
+</div>

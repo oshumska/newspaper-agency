@@ -1,0 +1,83 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Newspapers {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    {% load form_tags %}
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        <!-- Hero -->
+        <div class="section-header pb-6 bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center">
+                        <h1 class="display-3 mb-4">Newspapers
+                            <a href="{% url 'redaction:newspaper-create' %}" class="btn btn-secondary link-to-page">
+                                Create
+                            </a>
+                        </h1>
+                        <form method="get" action="">
+                            <div class="input-group">
+                                {{ search_form.title|add_class:"form-control" }}
+                                <span class="input-group-text">
+                                    <input class="fa fa-search-plus" style="background-color: transparent; border: none" type="submit" value="🔍">
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End of Hero -->
+        <div class="section section-md">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="mb-5">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th scope="col" id="title">Title</th>
+                                    <th scope="col" id="pubdate">Publishing date</th>
+                                    <th scope="col" id="topic">Topic</th>
+                                    <th scope="col" id="redactors">Redactors</th>
+                                </tr>
+                                {% for newspaper in newspaper_list %}
+                                    <tr>
+                                        <th scope="row" style="vertical-align: middle"><a href="{% url 'redaction:newspaper-detail' pk=newspaper.id %}">{{ newspaper.title }}</a></th>
+                                        <td headers="pubdate" style="vertical-align: middle;">{{ newspaper.published_date }}</td>
+                                        <td headers="topic" style="vertical-align: middle">
+                                            <p>
+                                                {{ newspaper.topic.name }}
+                                            </p>
+                                            {% for subtopic in newspaper.sub_topic.all %}
+                                                {% if subtopic != newspaper.topic %}
+                                                    <p>{{ subtopic }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                        <td headers="redactors" style="vertical-align: middle">
+                                            {% for redactor in newspaper.publishers.all %}
+                                                <p>{{ redactor }}</p>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
